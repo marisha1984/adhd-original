@@ -29,11 +29,53 @@
     ></script>
   </head>
   <body
-    class="relative h-fit bg-olive-100 px-10 py-40 font-sans text-gray-500 sm:px-28 sm:text-lg lg:px-36 xl:px-48 2xl:px-60"
+    class="relative h-fit bg-olive-100 px-10 pb-20 font-sans text-gray-500 sm:px-28 sm:text-lg lg:px-36 xl:px-48 2xl:px-60"
   >
+    <header class="rounded-lg rounded-t-none bg-bluegray-100 px-12 py-3">
+      <ul class="flex items-center justify-between">
+        <li class="flex flex-col items-center">
+          <img src="/src/img/journals.svg" alt="journals" /><span
+            class="adhd-text"
+            >Journals</span
+          >
+        </li>
+        <li class="flex flex-col items-center">
+          <img src="/src/img/products.svg" alt="products" /><span
+            class="adhd-text"
+            >Products</span
+          >
+        </li>
+        <li class="flex flex-col items-center">
+          <img src="/src/img/events.svg" alt="events" /><span class="adhd-text"
+            >Events</span
+          >
+        </li>
+        <li class="flex flex-col items-center">
+          <img src="/src/img/team.svg" alt="team" /><span class="adhd-text"
+            >Our Team</span
+          >
+        </li>
+        <li class="relative flex flex-col items-center">
+          <img src="/src/img/about.svg" alt="about" /><span class="adhd-text"
+            >About Us</span
+          >
+          <div
+            class="text-gray-4500 absolute flex h-8 w-28 translate-y-24 items-center justify-center rounded-lg bg-bluegray-100"
+          >
+            &#x25B2;
+          </div>
+        </li>
+        <li class="flex flex-col items-center">
+          <img src="/src/img/contact.svg" alt="contact" /><span
+            class="adhd-text"
+            >Contact Us</span
+          >
+        </li>
+      </ul>
+    </header>
     <main class="mx-auto max-w-6xl" x-data="{selected: null}">
       <!-- Main text -->
-      <section>
+      <section class="mt-14">
         <h1
           class="adhd-text text-5xl leading-[3rem] tracking-wider text-gray-700 md:text-7xl"
         >
