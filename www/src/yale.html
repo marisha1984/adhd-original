@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Yale</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript">
+      var elm = document.getElementsByTagName("html")[0];
+      elm.style.display = "none";
+      document.addEventListener("DOMContentLoaded", function (event) {
+        elm.style.display = "block";
+      });
+    </script>
+    <script type="module" src="js/app.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body
+    x-data="{selected: null}"
+    class="relative h-screen bg-olive-100 px-10 pb-20 font-sans text-gray-500 sm:px-28 sm:text-lg lg:px-36 xl:px-44"
+  >
+    <header
+      class="relative rounded-lg rounded-t-none bg-bluegray-100 px-9 py-5"
+    >
+      <ul class="relative flex items-center justify-between">
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/home.svg" alt="home" /><span class="adhd-text"
+            >Home</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-100"
+        >
+          <img src="/src/img/about.svg" alt="about" /><span class="adhd-text"
+            >About Us</span
+          >
+          <div
+            class="text-gray-4500 absolute flex h-8 w-28 translate-y-16 items-center justify-center rounded-lg bg-bluegray-100"
+          >
+            &#x25B2;
+          </div>
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/apply.svg" alt="apply" /><span class="adhd-text"
+            >Apply</span
+          >
+        </li>
+        <li
+          class="relative flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/exhibitions.svg" alt="exhibitions" /><span
+            class="adhd-text"
+            >Exhibitions</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/publications.svg" alt="publications" /><span
+            class="adhd-text"
+            >Publications</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/news.svg" alt="news" /><span class="adhd-text"
+            >News</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/events.svg" alt="events" /><span class="adhd-text"
+            >Public Events</span
+          >
+        </li>
+      </ul>
+      <!-- Tooltip for menu-->
+      <div class="absolute -left-8 top-28 w-80 sm:w-[500px]">
+        <button
+          class="duration-150 hover:scale-125"
+          x-on:click="selected !==9 ? selected=9 : selected=null"
+        >
+          <img src="img/question.svg" alt="question-icon" />
+        </button>
+        <div
+          x-show="selected===9"
+          class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+        >
+          <div>
+            <p>
+              This menu bar on the official website is positioned on the left
+              hand-side with no icons. In the ADHD accessible version of this
+              website there is an icon representing each page. In addition to
+              this, there is a button below that allows the user to hide the
+              menu bar as it can serve as a distraction.
+            </p>
+          </div>
+          <button
+            x-on:click="selected=null"
+            class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+          >
+            <div class="absolute h-[3px] w-full bg-olive-500"></div>
+            <div class="absolute h-full w-[3px] bg-olive-500"></div>
+          </button>
+        </div>
+      </div>
+      <!-- tooltip end -->
+    </header>
+    <main class="mx-auto max-w-6xl">
+      <!-- Main text -->
+      <section class="mt-12">
+        <h1
+          class="text-6xl font-extrabold uppercase leading-[3rem] tracking-widest text-gray-700 md:text-9xl"
+        >
+          Yale
+        </h1>
+        <h1
+          class="adhd-text text-3xl leading-[3rem] tracking-wider text-gray-700 md:text-5xl"
+        >
+          School of Art
+        </h1>
+
+        <!-- Tooltip for background-->
+        <div class="absolute left-60 top-48 w-80 sm:w-[500px]">
+          <button
+            class="duration-150 hover:scale-125"
+            x-on:click="selected!==1 ? selected=1 : selected= null"
+          >
+            <img src="img/question.svg" alt="question-icon" />
+          </button>
+          <div
+            x-show="selected===1"
+            class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+          >
+            <p class="mt-3">
+              This website is an ADHD friendly version of the Yale School of Art
+              website which is notoriously known for its over-complicated design
+              which can be found on this link: https://www.art.yale.edu/.
+            </p>
+            <button
+              x-on:click="selected=null"
+              class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+            >
+              <div class="absolute h-[3px] w-full bg-olive-500"></div>
+              <div class="absolute h-full w-[3px] bg-olive-500"></div>
+            </button>
+          </div>
+        </div>
+        <!-- tooltip end -->
+
+        <div class="mt-10 grid grid-cols-1 gap-20 xl:grid-cols-2">
+          <div class="relative">
+            <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+              The Yale School of Art is a graduate school that confers MFAs in
+              Graphic Design, Painting/Printmaking, Photography, and Sculpture;
+              and offers undergraduate-level art courses to Yale College
+              students. Our website exists as an ongoing collaborative
+              experiment in digital publishing and information sharing. It
+              functions as a wiki—all members of the School of Art community
+              have the ability to add new, and edit most existing content.
+            </p>
+
+            <!-- Tooltip for main text-->
+            <div class="absolute -left-8 -top-4 w-80 sm:w-[500px]">
+              <button
+                class="duration-150 hover:scale-125"
+                x-on:click="selected !==2 ? selected=2 : selected=null"
+              >
+                <img src="img/question.svg" alt="question-icon" />
+              </button>
+              <div
+                x-show="selected===2"
+                class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+              >
+                <div>
+                  <p class="mt-3">
+                    On the official website the first block of text is presented
+                    on a neon yellow background and contains an additional
+                    button referred to as the 'editors details.' The text is all
+                    cramped into the left hand-side of the webpage which can be
+                    hard to navigate especially for an individual with ADHD. For
+                    the ADHD friendly version of this website, the text boxes
+                    have been separated, for an ADHD user it is best to only
+                    display the relevant chunks of text one at a time. The
+                    bright distracting yellow background has also been replaced
+                    by a muted green which relaxes the eyes and makes reading
+                    the text a more enjoyable process. The bionic reading method
+                    has also been implemented onto the text so that ADHD users
+                    can focus and read the text with greater ease.
+                  </p>
+                </div>
+                <button
+                  x-on:click="selected=null"
+                  class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+                >
+                  <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                  <div class="absolute h-full w-[3px] bg-olive-500"></div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- tooltip end -->
+
+          <!-- Image -->
+          <div class="relative xl:mt-3">
+            <img class="w-full rounded-md" src="img/main.jpg" alt="lady" />
+
+            <!-- Tooltip for image -->
+            <div class="absolute left-0 top-0 w-80 sm:w-96">
+              <button
+                class="duration-150 hover:scale-125"
+                x-on:click="selected !==3 ? selected=3 : selected=null"
+              >
+                <img src="img/question.svg" alt="question-icon" />
+              </button>
+
+              <div
+                x-show="selected===3"
+                class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+              >
+                <p class="mt-3">
+                  It is important to balance texts with images. Images can be
+                  used to help gain a better understanding of the context behind
+                  the text.
+                </p>
+                <button
+                  x-on:click="selected=null"
+                  class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+                >
+                  <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                  <div class="absolute h-full w-[3px] bg-olive-500"></div>
+                </button>
+              </div>
+            </div>
+            <!-- tooltip end -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Toolbar -->
+      <section class="fixed top-8 right-6" x-data="{notepadOpen:true}">
+        <div
+          class="flex h-64 w-20 flex-col items-center justify-between rounded-lg bg-olive-200 p-6"
+        >
+          <button
+            class="mt-6 h-12 w-12 rounded-full p-1 duration-75 hover:scale-125"
+            :class="notepadOpen ? 'bg-olive-400' : 'bg-yellow-100'"
+            @click="notepadOpen=!notepadOpen"
+          >
+            <img
+              class="h-full w-full"
+              src="img/notepad.svg"
+              alt="notepad icon"
+            />
+          </button>
+
+          <button class="h-12 w-12 rounded-full bg-yellow-100 p-1">
+            <img
+              class="h-full w-full"
+              src="img/highlight.svg"
+              alt="highlight icon"
+            />
+          </button>
+
+          <button class="h-12 w-12 rounded-full bg-yellow-100 p-1">
+            <img
+              class="h-full w-full"
+              src="img/voiceover.svg"
+              alt="voice over icon"
+            />
+          </button>
+        </div>
+        <div
+          class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center rounded-full bg-yellow-100"
+        >
+          <div class="absolute h-[2px] w-full bg-gray-900"></div>
+          <div class="absolute h-full w-[2px] bg-gray-900"></div>
+        </div>
+
+        <!-- Tooltip for toolbar -->
+        <div class="absolute left-0 -top-0 w-72 sm:w-96">
+          <button
+            class="duration-150 hover:scale-125"
+            x-on:click="selected !==4 ? selected=4 : selected=null"
+          >
+            <img src="img/question.svg" alt="question-icon" />
+          </button>
+
+          <div
+            x-show="selected===4"
+            class="absolute z-50 mt-1 -translate-x-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+          >
+            <p class="mt-3">
+              There is no tool bar on the official website however, a note
+              taking function as well as read aloud button would be very useful
+              for such as website. It contains large paragraphs of information
+              that could instead be read aloud to an ADHD user. Giving the user
+              the opportunity to make notes will also ensure that they can
+              retain important information.
+            </p>
+            <button
+              x-on:click="selected=null"
+              class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+            >
+              <div class="absolute h-[3px] w-full bg-olive-500"></div>
+              <div class="absolute h-full w-[3px] bg-olive-500"></div>
+            </button>
+          </div>
+        </div>
+        <!-- tooltip end -->
+
+        <!-- Notepad -->
+        <div
+          class="fixed bottom-24 right-0 z-40 sm:right-6 sm:bottom-0"
+          :class="notepadOpen ? '' : 'hidden'"
+        >
+          <div
+            class="relative h-fit w-full rounded-lg bg-olive-200 px-8 py-10 sm:w-72"
+          >
+            <div class="border-[1px] border-gray-500 bg-yellow-100 px-6 py-3">
+              <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+                The Yale Arts Apprenticeship Program is an initiative that
+                connects Yale undergraduates with professional arts
+                practitioners of any discipline
+              </p>
+            </div>
+            <button
+              class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center rounded-full bg-yellow-50 hover:scale-125"
+              x-on:click="notepadOpen = !notepadOpen"
+            >
+              <div class="absolute h-[2px] w-full bg-gray-900"></div>
+              <div class="absolute h-full w-[2px] bg-gray-900"></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Previus page info -->
+      <section class="absolute bottom-0 left-0 w-full">
+        <div class="relative mx-auto w-fit">
+          <div
+            class="rounded-t-md border-x-[1px] border-t-[1px] border-gray-400 bg-red-100 px-10 pt-1"
+          >
+            <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+              Previous Page: Community Bulletin Board
+            </p>
+          </div>
+
+          <!-- Tooltip for previous content info -->
+          <div class="absolute left-0 -top-0 w-80 sm:w-96">
+            <button
+              class="duration-150 hover:scale-125"
+              x-on:click="selected !==8 ? selected=8 : selected=null"
+            >
+              <img src="img/question.svg" alt="question-icon" />
+            </button>
+
+            <div
+              x-show="selected===8"
+              class="absolute left-10 z-50 mt-1 -translate-y-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+            >
+              <p class="mt-3">
+                The official website does not contain a reminder pop up. For a
+                dense website with so many sub-pages a reminder button would be
+                very useful for an ADHD user who can be prone to forgetfulness.
+              </p>
+              <button
+                x-on:click="selected=null"
+                class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+              >
+                <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                <div class="absolute h-full w-[3px] bg-olive-500"></div>
+              </button>
+            </div>
+          </div>
+          <!-- tooltip end -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

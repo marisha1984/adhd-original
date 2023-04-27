@@ -28,6 +28,6 @@ module.exports = {
   },
   variants: {},
   plugins: [
-    require('@tailwindcss/line-clamp'),
+    require('prettier-plugin-tailwindcss')
   ],
 };

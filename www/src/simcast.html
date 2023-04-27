@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript">
+      var elm = document.getElementsByTagName("html")[0];
+      elm.style.display = "none";
+      document.addEventListener("DOMContentLoaded", function (event) {
+        elm.style.display = "block";
+      });
+    </script>
+    <script type="module" src="js/app.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body
+    class="relative h-fit overflow-x-clip bg-olive-100 px-8 pb-20 font-sans text-gray-600 sm:text-lg"
+    x-data="{selected: null}"
+  >
+    <!-- Tooltip for background-->
+    <!-- <div class="absolute left-20 top-52 w-80 sm:w-96">
+      <button
+        class="duration-150 hover:scale-125"
+        x-on:click="selected!==1 ? selected=1 : selected= null"
+      >
+        <img src="img/question.svg" alt="question-icon" />
+      </button>
+      <div
+        x-show="selected===1"
+        class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+      >
+        <p class="mt-3">
+          Having a pastel blue, green or yellow background, with a minimalist
+          layout is the best strategy to make a website accessible. Such a
+          colour palette is easy on the eyes and helps users maintain their
+          focus.
+        </p>
+        <button
+          x-on:click="selected=null"
+          class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+        >
+          <div class="absolute h-[3px] w-full bg-olive-500"></div>
+          <div class="absolute h-full w-[3px] bg-olive-500"></div>
+        </button>
+      </div>
+    </div> -->
+    <!-- tooltip end -->
+
+    <!-- Menu -->
+    <header
+      class="relative mx-20 rounded-lg rounded-t-none bg-bluegray-100 p-3"
+    >
+      <ul class="flex items-center justify-between">
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-100"
+        >
+          <img src="/src/img/news.svg" alt="news" /><span
+            class="adhd-text tracking-wider"
+            >News</span
+          >
+          <div
+            class="absolute flex h-8 w-28 translate-y-16 items-center justify-center rounded-lg bg-bluegray-100 text-gray-500"
+          >
+            &#x25B2;
+          </div>
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/entertainment.svg" alt="entertainment" /><span
+            class="adhd-text tracking-wider"
+            >Entertainment</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/money.svg" alt="money" /><span
+            class="adhd-text tracking-wider"
+            >Money</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/lifestyle.svg" alt="lifestyle" /><span
+            class="adhd-text"
+            >Lifestyle</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/health.svg" alt="health" /><span class="adhd-text"
+            >Health</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/sports.svg" alt="sports" /><span class="adhd-text"
+            >Sports</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/travel.svg" alt="travel" /><span class="adhd-text"
+            >Travel</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/video.svg" alt="video" /><span class="adhd-text"
+            >Videos</span
+          >
+        </li>
+        <li
+          class="relative flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/about.svg" alt="about" /><span class="adhd-text"
+            >About Us</span
+          >
+        </li>
+        <li
+          class="flex h-24 w-32 flex-col items-center justify-center rounded-lg bg-yellow-50 hover:cursor-pointer hover:bg-yellow-100"
+        >
+          <img src="/src/img/login.svg" alt="log in" /><span class="adhd-text"
+            >Log in</span
+          >
+        </li>
+      </ul>
+      <!-- Tooltip for menu-->
+      <div class="absolute -left-8 top-28 w-80 sm:w-[500px]">
+        <button
+          class="duration-150 hover:scale-125"
+          x-on:click="selected !==12 ? selected=12 : selected=null"
+        >
+          <img src="img/question.svg" alt="question-icon" />
+        </button>
+        <div
+          x-show="selected===12"
+          class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+        >
+          <div>
+            <p>
+              The menu bar on the official Simcast website is of a dark purple
+              shade that can be straining on the eyes. There are also no icons
+              to represent the menu options. In the ADHD counterpart of this
+              website there is a retractable menu bar that contains intuitive
+              icons, making the menu bar easier to navigate. Moreover, instead
+              of splitting the webpage into two sections, one containing the
+              news segments and another the login page, the latter has been
+              added to the menu bar so that ADHD users would not be confused and
+              distracted by the large amount of information at hand.
+            </p>
+            <!-- <p class="mt-3">
+              This menu style takes inspiration from the official Apple website
+              the link to which you can find here:
+              <a
+                class="underline underline-offset-4"
+                href="https://www.apple.com/uk/iphone/"
+                >https://www.apple.com/uk/iphone/</a
+              >
+            </p>
+            <p>
+              The icons are all minimalist and intuitive, this in turn ensures
+              that users are able to manipulate the website with greater ease.
+              The simple navigation structure does not rely on a global search
+              function and does not contain a menu within a menu. Users can see
+              the resources they have access to from first glance and without
+              having to dig through multiple tabs. The arrow below the menu
+              ensures that users can hide the menu bar as it can prove to be a
+              distraction to those with ADHD.
+            </p> -->
+          </div>
+          <button
+            x-on:click="selected=null"
+            class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+          >
+            <div class="absolute h-[3px] w-full bg-olive-500"></div>
+            <div class="absolute h-full w-[3px] bg-olive-500"></div>
+          </button>
+        </div>
+      </div>
+      <!-- tooltip end -->
+    </header>
+    <!-- end of menu -->
+
+    <!-- Main part -->
+    <main class="relative mx-auto mt-14 max-w-6xl">
+      <h1
+        class="adhd-text text-5xl leading-[3rem] tracking-wider text-gray-700 md:text-9xl"
+      >
+        Simcast
+      </h1>
+      <!-- Tooltip for webpage title-->
+      <div class="absolute left-[480px] top-4 w-80 sm:w-96">
+        <button
+          class="duration-150 hover:scale-125"
+          x-on:click="selected !==2 ? selected=2 : selected=null"
+        >
+          <img src="img/question.svg" alt="question-icon" />
+        </button>
+        <div
+          x-show="selected===2"
+          class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+        >
+          <div>
+            <p class="mt-3">
+              On the official website, the title can be found in the corner of
+              the webpage in a small unnoticeable font. Instead the ADHD
+              friendly version of this website contains a title with a large,
+              Sans font that can easily be distinguished as the title of the
+              webpage. The text is a shade of dark grey making it easer for the
+              user to read the text.
+            </p>
+          </div>
+          <button
+            x-on:click="selected=null"
+            class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+          >
+            <div class="absolute h-[3px] w-full bg-olive-500"></div>
+            <div class="absolute h-full w-[3px] bg-olive-500"></div>
+          </button>
+        </div>
+      </div>
+      <!-- tooltip end -->
+
+      <section class="relative mt-14">
+        <h2
+          class="adhd-text text-4xl leading-[3rem] tracking-wider text-gray-600"
+        >
+          Breaking News
+        </h2>
+        <!-- Tooltip for Breaking News Section-->
+        <div class="absolute left-64 top-0 w-80 sm:w-96">
+          <button
+            class="duration-150 hover:scale-125"
+            x-on:click="selected !==3 ? selected=3 : selected=null"
+          >
+            <img src="img/question.svg" alt="question-icon" />
+          </button>
+          <div
+            x-show="selected===3"
+            class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+          >
+            <div>
+              <p class="mt-3">
+                On the official Simcast website the 'trending news' and
+                'breaking news' segments are cramped onto one page. On the ADHD
+                accessible version of this website the two segments have been
+                split up and will be presented separately as such a vast amount
+                of information can prove to be distracting for an ADHD user.
+              </p>
+            </div>
+            <button
+              x-on:click="selected=null"
+              class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+            >
+              <div class="absolute h-[3px] w-full bg-olive-500"></div>
+              <div class="absolute h-full w-[3px] bg-olive-500"></div>
+            </button>
+          </div>
+        </div>
+        <!-- tooltip end -->
+
+        <article
+          class="relative mt-6 grid grid-cols-1 gap-20 rounded-md bg-olive-150 py-4 px-12 sm:grid-cols-3 lg:grid-cols-4"
+        >
+          <!-- Text -->
+          <div class="relative sm:col-span-2 lg:col-span-3">
+            <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+              King Charles's guards forced to live in rat-infested barracks
+              'worse than prison'
+            </p>
+          </div>
+
+          <!-- Image -->
+          <div class="relative h-32">
+            <img
+              class="absolute h-full w-full rounded-md object-cover"
+              src="img/guards.jpg"
+              alt="meadow"
+            />
+            <!-- Tooltip for image -->
+            <!-- <div class="absolute left-0 top-0 w-80 sm:w-96">
+              <button
+                class="duration-150 hover:scale-125"
+                x-on:click="selected !==5 ? selected=5 : selected=null"
+              >
+                <img src="img/question.svg" alt="question-icon" />
+              </button>
+
+              <div
+                x-show="selected===5"
+                class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+              >
+                <p class="mt-3">
+                  It is important to balance texts with images. Images can be
+                  used to help gain a better understanding of the context behind
+                  the text.
+                </p>
+                <button
+                  x-on:click="selected=null"
+                  class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+                >
+                  <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                  <div class="absolute h-full w-[3px] bg-olive-500"></div>
+                </button>
+              </div>
+            </div> -->
+            <!-- tooltip end -->
+          </div>
+
+          <!-- Tooltip for adhd text-->
+          <!-- <div class="absolute left-2 top-2 w-80 sm:w-[500px]">
+            <button
+              class="duration-150 hover:scale-125"
+              x-on:click="selected !==4 ? selected=4 : selected=null"
+            >
+              <img src="img/question.svg" alt="question-icon" />
+            </button>
+            <div
+              x-show="selected===4"
+              class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+            >
+              <div>
+                <p class="mt-3">
+                  Bionic reading is an effective method for reading and
+                  processing text. This method involves making the first few
+                  letters of a word bold, forcing your brain to fill in the rest
+                  of the word. Those with ADHD often find it hard to focus on
+                  text for prolonged periods of time however, this method could
+                  stimulate users.
+                </p>
+                <p>
+                  Standard text should be in size 19, with a maximum of 70
+                  characters per line. The line spacing should be 50% of the
+                  text size. The text colour should be a shade of dark grey and
+                  preferably in the font San Serif. It is essential that text is
+                  well spaced out as studies show that this helps users with
+                  ADHD sustain their attention. The colour dark grey is less
+                  straining on the eye and makes reading large amounts of text a
+                  more pleasurable experience.
+                </p>
+              </div>
+              <button
+                x-on:click="selected=null"
+                class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+              >
+                <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                <div class="absolute h-full w-[3px] bg-olive-500"></div>
+              </button>
+            </div>
+          </div> -->
+          <!-- tooltip end -->
+        </article>
+        <article
+          class="relative mt-6 grid grid-cols-1 gap-20 rounded-md bg-olive-150 py-4 px-12 sm:grid-cols-3 lg:grid-cols-4"
+        >
+          <!-- Text -->
+          <div class="relative sm:col-span-2 lg:col-span-3">
+            <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+              Deepest fish ever captured on film
+            </p>
+          </div>
+
+          <!-- Image -->
+          <div class="relative h-32 w-full">
+            <img
+              class="absolute h-full w-full rounded-md object-cover"
+              src="img/fish.jpeg"
+              alt="fish"
+            />
+          </div>
+        </article>
+        <article
+          class="relative mt-6 grid grid-cols-1 gap-20 rounded-md bg-olive-150 py-4 px-12 sm:grid-cols-3 lg:grid-cols-4"
+        >
+          <!-- Text -->
+          <div class="relative sm:col-span-2 lg:col-span-3">
+            <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+              Tony Blair’s son wins backing of America’s richest family
+            </p>
+          </div>
+
+          <!-- Image -->
+          <div class="relative h-32">
+            <img
+              class="absolute h-full w-full rounded-md object-cover"
+              src="img/tony.jpeg"
+              alt="tony blair"
+            />
+          </div>
+        </article>
+      </section>
+    </main>
+    <!--  -->
+
+    <!-- Toolbar + Notepad -->
+    <aside x-data="{notepadOpen:true}">
+      <!-- Toolbar -->
+      <section class="fixed top-8 right-6 z-50">
+        <div
+          class="flex h-64 w-20 flex-col items-center justify-between rounded-lg bg-olive-200 p-6"
+        >
+          <button
+            class="mt-6 h-12 w-12 rounded-full p-1 duration-75 hover:scale-125"
+            :class="notepadOpen ? 'bg-olive-400' : 'bg-yellow-100'"
+            @click="notepadOpen=!notepadOpen"
+          >
+            <img
+              class="h-full w-full"
+              src="img/notepad.svg"
+              alt="notepad icon"
+            />
+          </button>
+          <!-- Tooltip for notepad button -->
+          <!-- <div class="absolute left-12 top-[5.25rem] w-80 sm:w-96">
+            <button
+              class="duration-150 hover:scale-125"
+              x-on:click="selected !==6 ? selected=6 : selected=null"
+            >
+              <img src="img/question.svg" alt="question-icon" />
+            </button>
+
+            <div
+              x-show="selected===6"
+              class="absolute z-50 mt-1 -translate-x-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+            >
+              <p class="mt-3">
+                The notes feature would allow users to write notes whilst
+                browsing a website. This feature could be particularly useful
+                for websites that contain a lot of important information that
+                needs to be memorised. Studies have shown that people with ADHD
+                tend to have issues with their working memory therefore, having
+                a space where they can make notes is essential.
+              </p>
+              <button
+                x-on:click="selected=null"
+                class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+              >
+                <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                <div class="absolute h-full w-[3px] bg-olive-500"></div>
+              </button>
+            </div>
+          </div> -->
+          <!-- tooltip end -->
+
+          <button class="h-12 w-12 rounded-full bg-yellow-100 p-1">
+            <img
+              class="h-full w-full"
+              src="img/highlight.svg"
+              alt="highlight icon"
+            />
+          </button>
+          <!-- Tooltip for highlighter button-->
+          <!-- <div class="absolute left-12 top-[9.5rem] w-80 sm:w-96">
+            <button
+              class="duration-150 hover:scale-125"
+              x-on:click="selected !==7 ? selected=7 : selected=null"
+            >
+              <img src="img/question.svg" alt="question-icon" />
+            </button>
+            <div
+              x-show="selected===7"
+              class="absolute top-0 z-50 mt-1 -translate-x-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+            >
+              <p class="mt-3 leading-relaxed">
+                Studies have shown that those with ADHD are able to read more
+                efficiently if some parts of a text is highlighted. An article
+                published in the Journal of Abnormal Child Psychology suggested
+                that those with ADHD were able to focus better on a text if it
+                had an element of novelty to it. Hence, implementing a highlight
+                feature would allow users to highlight appropriate areas of text
+                that could then make the text easier to process.
+              </p>
+              <button
+                x-on:click="selected=null"
+                class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+              >
+                <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                <div class="absolute h-full w-[3px] bg-olive-500"></div>
+              </button>
+            </div>
+          </div> -->
+          <!-- tooltip end -->
+
+          <button class="h-12 w-12 rounded-full bg-yellow-100 p-1">
+            <img
+              class="h-full w-full"
+              src="img/voiceover.svg"
+              alt="voice over icon"
+            />
+          </button>
+          <!-- Tooltip for voiceover button -->
+          <!-- <div class="absolute top-[13.75rem] left-12 w-80 sm:w-96">
+            <button
+              class="duration-150 hover:scale-125"
+              x-on:click="selected !==8 ? selected=8 : selected=null"
+            >
+              <img src="img/question.svg" alt="question-icon" />
+            </button>
+
+            <div
+              x-show="selected===8"
+              class="absolute z-50 mt-1 -translate-x-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+            >
+              <p class="mt-3">
+                This text-to-speech feature would allow ADHD users to listen to
+                the text that they select. Large chunks of information tend to
+                overwhelm those with ADHD thus, implementing this feature on a
+                website would ensure that the user focuses on the text and
+                enjoys the process.
+              </p>
+              <button
+                x-on:click="selected=null"
+                class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+              >
+                <div class="absolute h-[3px] w-full bg-olive-500"></div>
+                <div class="absolute h-full w-[3px] bg-olive-500"></div>
+              </button>
+            </div>
+          </div> -->
+          <!-- tooltip end -->
+        </div>
+        <div
+          class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center rounded-full bg-yellow-100"
+        >
+          <div class="absolute h-[2px] w-full bg-gray-900"></div>
+          <div class="absolute h-full w-[2px] bg-gray-900"></div>
+        </div>
+
+        <!-- Tooltip for toolbar -->
+        <div class="absolute left-0 -top-0 w-72 sm:w-96">
+          <button
+            class="duration-150 hover:scale-125"
+            x-on:click="selected !==9 ? selected=9 : selected=null"
+          >
+            <img src="img/question.svg" alt="question-icon" />
+          </button>
+
+          <div
+            x-show="selected===9"
+            class="absolute z-50 mt-1 -translate-x-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+          >
+            <p class="mt-3">
+              There was no toolbar on the official Simcast website. However, the
+              ADHD accessible counterpart contains a note-taking, highlighting
+              and read-aloud functions. All three functions make it easier for
+              an ADHD user to retain large amounts of information. The
+              read-aloud button is especially useful considering the large
+              number of articles that a user may need to read. This function
+              will ensure that users can remain focused.
+            </p>
+            <button
+              x-on:click="selected=null"
+              class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+            >
+              <div class="absolute h-[3px] w-full bg-olive-500"></div>
+              <div class="absolute h-full w-[3px] bg-olive-500"></div>
+            </button>
+          </div>
+        </div>
+        <!-- tooltip end -->
+      </section>
+
+      <!-- Notepad -->
+      <section
+        class="fixed bottom-4 right-0 z-30 sm:right-6 sm:bottom-6"
+        :class="notepadOpen ? '' : 'hidden'"
+      >
+        <div
+          class="relative h-[500px] w-52 rounded-lg bg-olive-200 px-8 py-10 sm:w-64"
+        >
+          <div
+            class="h-full w-full border-[1px] border-gray-500 bg-yellow-100 px-6 py-3"
+          >
+            <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+              King Charles’ Guards forced to live in rat infested barracks
+            </p>
+          </div>
+          <button
+            class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center rounded-full bg-yellow-50 hover:scale-125"
+            x-on:click="notepadOpen = false"
+          >
+            <div class="absolute h-[2px] w-full bg-gray-900"></div>
+            <div class="absolute h-full w-[2px] bg-gray-900"></div>
+          </button>
+        </div>
+        <!-- Tooltip for notepad -->
+        <div class="absolute left-2 top-2 w-80 sm:w-96">
+          <button
+            class="duration-150 hover:scale-125"
+            x-on:click="selected !==10 ? selected=10 : selected=null"
+          >
+            <img src="img/question.svg" alt="question-icon" />
+          </button>
+
+          <div
+            x-show="selected===10"
+            class="absolute z-50 mt-1 -translate-x-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+          >
+            <p class="mt-3">
+              For ADHD users that need to retain the information that they are
+              reading from the article it could be useful to have a note-taking
+              function that would allow ADHD users to make note of important
+              information.
+            </p>
+            <button
+              x-on:click="selected=null"
+              class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+            >
+              <div class="absolute h-[3px] w-full bg-olive-500"></div>
+              <div class="absolute h-full w-[3px] bg-olive-500"></div>
+            </button>
+          </div>
+        </div>
+        <!-- tooltip end -->
+      </section>
+    </aside>
+    <!--  -->
+
+    <!-- Previus page info -->
+    <footer class="absolute bottom-0 left-0 w-full">
+      <div class="relative mx-auto w-fit">
+        <section
+          class="rounded-t-md border-x-[1px] border-t-[1px] border-gray-400 bg-red-100 px-10 pt-1"
+        >
+          <p class="adhd-text text-xl leading-[3rem] tracking-wider">
+            The content from the previous page goes here
+          </p>
+        </section>
+
+        <!-- Tooltip for previous content info -->
+        <div class="absolute left-0 -top-0 w-80 sm:w-96">
+          <button
+            class="duration-150 hover:scale-125"
+            x-on:click="selected !==11 ? selected=11 : selected=null"
+          >
+            <img src="img/question.svg" alt="question-icon" />
+          </button>
+
+          <div
+            x-show="selected===11"
+            class="absolute left-10 z-50 mt-1 -translate-y-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
+          >
+            <p class="mt-3">
+              There is no prompt bar on the official website however,
+              considering the large amount of articles and pages contained
+              within the website it could be very useful to have a reminder of
+              the previous article that the user read.
+            </p>
+            <button
+              x-on:click="selected=null"
+              class="absolute right-2 top-3 flex h-5 w-5 rotate-45 items-center justify-center"
+            >
+              <div class="absolute h-[3px] w-full bg-olive-500"></div>
+              <div class="absolute h-full w-[3px] bg-olive-500"></div>
+            </button>
+          </div>
+        </div>
+        <!-- tooltip end -->
+      </div>
+    </footer>
+  </body>
+</html>
