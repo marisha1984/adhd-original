@@ -138,7 +138,16 @@
               the resources they have access to from first glance and without
               having to dig through multiple tabs. The arrow below the menu
               ensures that users can hide the menu bar as it can prove to be a
-              distraction to those with ADHD.
+              distraction to those with ADHD. The medical journal titled, 'Plugging
+              the Attention Deficit: Perceptual Load Counters Increased Distraction 
+              in ADHD', described the results during an experiment where images 
+              randomly popped up on the screen whilst participants were tasked to
+              try and find letters in a text. The results were as follows, “the
+              presence of these distractors produced a significantly greater 
+              interference effect on the search RTs for the adults with ADHD.” 
+              Thus, due to the susceptibility of ADHDers to distraction programmers 
+              must ensure that all the menu and tool bars can be hidden away, to 
+              ensure that there is as little interference as possible.
             </p>
           </div>
           <button
@@ -177,7 +186,15 @@
               Having a pastel blue, green or yellow background, with a
               minimalist layout is the best strategy to make a website
               accessible. Such a colour palette is easy on the eyes and helps
-              users maintain their focus.
+              users maintain their focus.  In an article titled, 'Reading with
+              Color-  What a Difference it can make', the author explained 
+              that the use of pastel colours for a background can improve the 
+              connections made in the brain for users with ADHD. Although it 
+              is also important to ensure that the colours used are well-balanced. 
+              As mentioned on the login page, ADHDers find it harder to differentiate 
+              between the colours blue and yellow thus, it is best to avoid 
+              placing these colours in close proximity or placing blue text on 
+              a yellow background and vice versa.
             </p>
             <button
               x-on:click="selected=null"
@@ -224,14 +241,43 @@
                     method could stimulate users.
                   </p>
                   <p>
-                    Standard text should be in size 19, with a maximum of 70
-                    characters per line. The line spacing should be 50% of the
-                    text size. The text colour should be a shade of dark grey
-                    and preferably in the font San Serif. It is essential that
-                    text is well spaced out as studies show that this helps
-                    users with ADHD sustain their attention. The colour dark
-                    grey is less straining on the eye and makes reading large
-                    amounts of text a more pleasurable experience.
+                    Standard text should be in size 19, with a maximum of 60 
+                    characters per line. The line spacing should be 50% of the 
+                    text size. The text colour should be a shade of dark grey 
+                    and preferably in the font San Serif. It is essential that 
+                    text is well spaced out as studies show that this helps users 
+                    with ADHD sustain their attention. The colour dark grey is 
+                    less straining on the eye and makes reading large amounts 
+                    of text a more pleasurable experience. In a blog article titled, 
+                    'ADHD and the Use of Sans Fonts: Do They Make a Real Impact 
+                    on the Legibility?', the blogger and typography specialists 
+                    stated that the following styling of text is optimal for ADHD 
+                    users: well- spaced line height/ letter width, sans serif font 
+                    and short line length (a maximum of 60 characters per line.)
+                  </p>
+                  <p>
+                    The code to implement the Bionic Reading function could look as follows: const content = document.querySelectorAll(".adhd-text");
+                    //searches for all tages where class is adhd-text
+                    const toADHD = (phrase) => {
+                    return phrase
+                    .split(' ')
+                    //split- looks for word
+                    .map(word => word.substring(0, 3).bold() + word.slice(3))
+                    //takes three letters and makes them bold
+                    .join(' ');
+                    //joins the bold letters and normal letters together to form one word 
+                    };
+                    //makes the first three letters bold 
+                    content.forEach(element => {
+                    element.innerHTML = toADHD(element.textContent)
+                    });
+                  </p>
+                  <p>
+                    In an article title, 'Is Bionic Reading a fad or can it help 
+                    people with ADHD, Dyslexia read better?', it was discussed that 
+                    although this reading method is a very recent discovery and there 
+                    are few scientifically backed publications this method has 
+                    nonetheless been a big hit with the ADHD community.
                   </p>
                 </div>
                 <button
@@ -264,9 +310,18 @@
                 class="absolute z-50 mt-1 rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
               >
                 <p class="mt-3">
-                  It is important to balance texts with images. Images can be
-                  used to help gain a better understanding of the context behind
-                  the text.
+                  It is important to balance texts with images. Images can 
+                  be used to help gain a better understanding of the context 
+                  behind the text. A study conducted by the Association for 
+                  Psychological Science which found that balancing blocks of 
+                  text with images helped bring structure to website for a 
+                  person with ADHD, for more information regarding this information 
+                  you can visit the following link: 
+                  <a
+                  class="underline underline-offset-4"
+                  href="https://www.iamtamara.design/portfolio/inflow"
+                  >https://www.iamtamara.design/portfolio/inflow</a
+                  >
                 </p>
                 <button
                   x-on:click="selected=null"
@@ -317,7 +372,14 @@
                 for websites that contain a lot of important information that
                 needs to be memorised. Studies have shown that people with ADHD
                 tend to have issues with their working memory therefore, having
-                a space where they can make notes is essential.
+                a space where they can make notes is essential. For more information 
+                regarding the memory of ADHD users follow the link: 
+                <a
+                class="underline underline-offset-4"
+                href="https://www.everydayhealth.com/adhd/tooth-grinding-poor-memory-and-more-surprising-facts-about-adhd.aspx#:~:text=4.,that%20require%20focus%20or%20concentration"
+                >https://www.everydayhealth.com/adhd/tooth-grinding-poor-memory-and-more-surprising-facts-about-adhd.aspx#:~:text=4.,that%20require%20focus%20or%20concentration</a
+                >
+                  
               </p>
               <button
                 x-on:click="selected=null"
@@ -390,11 +452,17 @@
               class="absolute z-50 mt-1 -translate-x-full rounded-lg border-2 border-olive-500 bg-white py-4 px-7"
             >
               <p class="mt-3">
-                This text-to-speech feature would allow ADHD users to listen to
-                the text that they select. Large chunks of information tend to
-                overwhelm those with ADHD thus, implementing this feature on a
-                website would ensure that the user focuses on the text and
-                enjoys the process.
+                This text-to-speech feature would allow ADHD users to listen to 
+                the text that they select. Large chunks of information tend to 
+                overwhelm those with ADHD thus, implementing this feature on a website 
+                would ensure that the user focuses on the text and enjoys the process
+                The article, 'Does Use of Text-to-Speech and Related Read-Aloud Tools 
+                Improve Reading Comprehension for Students With Reading Disabilities? 
+                A Meta-Analysis',  concluded that read aloud functions did in fact 
+                assist students with their reading comprehensions. Thus, for this very reason 
+                programmers should install a read-aloud function in to the tool bar, 
+                in hopes that if a reader must read through large chunks of information, 
+                they instead have the option of using the read aloud feature.
               </p>
               <button
                 x-on:click="selected=null"
